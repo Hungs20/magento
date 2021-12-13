@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx:1.16.1
+    ports:
+      - "80:80"
+    volumes: 
+      - ./nginx/:/etc/nginx/conf.d/
+      - ./src:/var/www/html
+  phpfpm:
+    build: ./Dockerfile/phpfpm
+    volumes: 
+      - ./src:/var/www/html
+      - ./php/memory_limit.ini:/usr/local/etc/php/conf.d/memory_limit.ini
+  mysql:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: ecommerce
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: root
+      # MYSQL_ROOT_PASSWORD: root
+    ports: 
+          - 3306:3306
+    volumes: 
+      - ./mysql:/var/lib/mysql/
+  elastic:
+    image: elasticsearch:7.8.1
+    container_name: elastic
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - ./es_data:/usr/share/elasticsearch/data
+    expose:
+      - 9200
+    ports: 
+      - 9200:9200
+  

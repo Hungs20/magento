@@ -1,0 +1,30 @@
+<h1 id="label_try">Tỷ giá tiền tệ</h1>
+<table style="width:100%">
+  <tr>
+    <th>Tên ngoại tệ</th>
+    <th>Mã NT</th>
+    <th>Tiền mặt</th>
+    <th>Chuyển khoản</th>
+    <th>Bán</th>
+  </tr>
+<?php
+    $url = "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx?b=68";
+    $feeds = simplexml_load_file($url);
+
+    $i=0;
+    if(!empty($feeds)){
+        $extraList = $feeds->Exrate;
+        foreach ($extraList as $item) {
+            echo '
+                <tr>
+                    <th>' . $item['CurrencyName'] .'</th>
+                    <th>' . $item['CurrencyCode'] .'</th>
+                    <th>' . $item['Buy'] .'</th>
+                    <th>' . $item['Transfer'] .'</th>
+                    <th>' . $item['Sell'] .'</th>
+                </tr>
+            ';
+        }
+    }
+?>
+</table>

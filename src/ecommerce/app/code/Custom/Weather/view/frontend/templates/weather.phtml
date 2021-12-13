@@ -1,0 +1,45 @@
+<?php
+/** @var \Custom\Weather\Block\WeatherBlock $block */
+?>
+<?php
+    $isData = false;
+    $name = '';
+    if(!empty($_GET) && !empty($_GET['city'])) {
+        $name = $_GET['city'];
+        $result = $block->getWeatherInformation($_GET['city']);
+        if ($result->cod == '200') {
+            $main = $result->weather[0]['main'];
+            $description = $result->weather[0]['description'];
+            $icon = $result->weather[0]['icon'];
+            $temp = $result->main['temp'];
+            $temp_min = $result->main['temp_min'];
+            $temp_max = $result->main['temp_max'];
+            $umid = $result->main['humidity'];
+            $isData = true;
+        }
+    }
+?>
+<h1 id="label_try"><?php echo $block->getLabel(); ?> </h1>
+
+<div id="show_weather">
+    <form class="search-weather" action="/weather/" method="GET">
+        <input type="text" placeholder="Enter City Name" id="search-txt" name="city" value="<?php echo $name ?>">
+        <button button type="submit" id="weather_button">Show Weather</button> </br>
+        <?php if($name != '' && !$isData) echo '<i class="text_danger">Không tìm thấy dữ liệu</i>' ?>
+    </form>
+
+    <div class="city-icon">
+        <div class="city-icon-holder">
+        <div id="city-name"><?php if($isData) echo $name ?></div>
+        <img src="<?php if($isData) echo 'http://openweathermap.org/img/w/' . $icon . '.png' ?>" alt="" id="icon">
+        </div>
+    </div>
+
+    <div class="temperature">
+      <div id="temp"> <?php if($isData) echo $temp ?></div>
+    </div>
+
+    <div class="humidity">
+      <div id="humidity-div"> <?php if($isData) echo $umid ?></div>
+    </div>
+</div>
