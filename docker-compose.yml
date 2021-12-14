@@ -30,6 +30,7 @@ services:
     container_name: elastic
     environment:
       - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
     volumes:
       - ./es_data:/usr/share/elasticsearch/data
     expose:
