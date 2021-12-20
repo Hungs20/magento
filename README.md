@@ -41,3 +41,11 @@
 - tạo file memory_limit.ini
 - lưu vào file trên: memory_limit = -1
 
+** Install plugin elasticsearch
+- cd vào cd /usr/share/elasticsearch
+bin/elasticsearch-plugin install analysis-phonetic
+bin/elasticsearch-plugin install analysis-icu
+
+** Fix outdate module
+update setup_module set data_version = schema_version where data_version is NULL;
+
