@@ -49,3 +49,7 @@ bin/elasticsearch-plugin install analysis-icu
 ** Fix outdate module
 update setup_module set data_version = schema_version where data_version is NULL;
 
+** Fix theme
+cd /src/ecommerce/tools
+yarn styles && yarn babel && yarn svg
+
