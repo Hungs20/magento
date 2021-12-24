@@ -41,6 +41,7 @@ RUN docker-php-ext-install \
   sysvsem \
   sysvshm \
   xsl \
+  fileinfo \
   zip
 
 RUN apt-get update -qq
