@@ -24,7 +24,7 @@ class MomoConfigProvider implements ConfigProviderInterface
     /**
      * Momo Logo
      */
-    const MOMO_LOGO_SRC = 'https://developers.momo.vn/images/logo.png';
+    const MOMO_LOGO_SRC = 'https://developers.momo.vn/v3/img/logo.svg';
 
     /**
      * @var ResolverInterface
