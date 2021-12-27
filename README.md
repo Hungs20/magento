@@ -69,5 +69,5 @@ chmod -R 0777 var/ pub/ generated/
 ```
 ### Change ssl
 ```console
-/var/www/html/ecommerce# bin/magento setup:store-config:set --base-url="https://www.hdhgearshop.tk/" --base-url-secure="https://www.hdhgearshop.tk/" --use-secure=1 --use-secure-admin=1
+/var/www/html/ecommerce# bin/magento setup:store-config:set --base-url="https://hdhgearshop.tk/" --base-url-secure="https://hdhgearshop.tk/" --use-secure=1 --use-secure-admin=1
 ```
