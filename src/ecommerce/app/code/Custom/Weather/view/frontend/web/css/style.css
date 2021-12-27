@@ -2,19 +2,10 @@ body{
     background-color: #eee;
   }
 
-  #temp, #humidity-div, #wind-div, #clouds-div {
+  #temp, #humidity-div {
     font-family: "Courier New";
     font-weight: bold;
-    font-size: 60px;
-    color: #fff;
-    margin-top: 15%;
-    text-align: center
-  }
-
-  #temp_min, #temp_max {
-    font-family: "Courier New";
-    font-weight: bold;
-    font-size: 40px;
+    font-size: 20px;
     color: #fff;
     margin-top: 15%;
     text-align: center

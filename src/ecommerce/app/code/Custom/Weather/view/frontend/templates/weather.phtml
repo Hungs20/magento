@@ -34,19 +34,15 @@
         <div class="city-icon-holder">
         <div id="city-name"><?php if($isData) echo $name ?></div>
         <img src="<?php if($isData) echo 'http://openweathermap.org/img/w/' . $icon . '.png' ?>" alt="" id="icon">
-        <div id="wind-div"> <?php if($isData) echo 'Wind' . $wind ?></div>
-        <div id="clouds-div"> <?php if($isData) echo 'Clouds' . $clouds ?></div>
         </div>
     </div>
 
     <div class="temperature">
-      <div id="temp"> <?php if($isData) echo 'Temperature: ' . $temp ?></div>
-      <div id="temp_min"> <?php if($isData) echo 'Min: ' . $temp_min ?></div>
-      <div id="temp_max"> <?php if($isData) echo 'Max: ' . $temp_max ?></div>
+      <div id="temp"> <?php if($isData) echo 'Temperature: ' . $temp . '\n' . 'Min: ' . $temp_min . '\n' . 'Max: ' . $temp_max?></div>
     </div>
 
     <div class="humidity">
-      <div id="humidity-div"> <?php if($isData) echo 'Humidity' . $umid ?></div>
+      <div id="humidity-div"> <?php if($isData) echo 'Humidity: ' . $umid . '\n' . 'Wind: ' . $wind . '\n'. 'Clouds: ' . $clouds ?></div>
     </div>
 
 </div>
