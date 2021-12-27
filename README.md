@@ -67,3 +67,7 @@ php bin/magento cache:flush
 php bin/magento indexer:reindex
 chmod -R 0777 var/ pub/ generated/
 ```
+### Change ssl
+```console
+/var/www/html/ecommerce# bin/magento setup:store-config:set --base-url="https://www.hdhgearshop.tk/" --base-url-secure="https://www.hdhgearshop.tk/" --use-secure=1 --use-secure-admin=1
+```
