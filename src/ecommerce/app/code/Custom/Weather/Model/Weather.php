@@ -17,7 +17,7 @@ class Weather
 
     const END_POINT_URL = 'api.openweathermap.org/data/2.5/weather?q=';
 
-    const API_KEY = 'fa49d4435bea40801e1bb1711bed3716';
+    const API_KEY = '6db548d642b465e35888b3b59fe17f95';
 
     private $response;
     /**

@@ -15,6 +15,8 @@
             $temp_min = $result->main['temp_min'];
             $temp_max = $result->main['temp_max'];
             $umid = $result->main['humidity'];
+            $wind = $result->wind['speed'];
+            $clouds = $result->clouds['all'];
             $isData = true;
         }
     }
@@ -24,7 +26,7 @@
 <div id="show_weather">
     <form class="search-weather" action="/weather/" method="GET">
         <input type="text" placeholder="Enter City Name" id="search-txt" name="city" value="<?php echo $name ?>">
-        <button button type="submit" id="weather_button">Show Weather</button> </br>
+        <button class="weather_button" type="submit" id="weather_button">Show Weather</button> </br>
         <?php if($name != '' && !$isData) echo '<i class="text_danger">Không tìm thấy dữ liệu</i>' ?>
     </form>
 
@@ -32,14 +34,19 @@
         <div class="city-icon-holder">
         <div id="city-name"><?php if($isData) echo $name ?></div>
         <img src="<?php if($isData) echo 'http://openweathermap.org/img/w/' . $icon . '.png' ?>" alt="" id="icon">
+        <div id="wind-div"> <?php if($isData) echo 'Wind' . $wind ?></div>
+        <div id="clouds-div"> <?php if($isData) echo 'Clouds' . $clouds ?></div>
         </div>
     </div>
 
     <div class="temperature">
-      <div id="temp"> <?php if($isData) echo $temp ?></div>
+      <div id="temp"> <?php if($isData) echo 'Temperature: ' . $temp ?></div>
+      <div id="temp_min"> <?php if($isData) echo 'Min: ' . $temp_min ?></div>
+      <div id="temp_max"> <?php if($isData) echo 'Max: ' . $temp_max ?></div>
     </div>
 
     <div class="humidity">
-      <div id="humidity-div"> <?php if($isData) echo $umid ?></div>
+      <div id="humidity-div"> <?php if($isData) echo 'Humidity' . $umid ?></div>
     </div>
+
 </div>
